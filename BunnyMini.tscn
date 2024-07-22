@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk6igyupnm53v"]
+
+[ext_resource type="Script" path="res://BunnyMini.cs" id="1_akccg"]
+[ext_resource type="Texture2D" uid="uid://sv83waipjf3" path="res://art/bunny_1.PNG" id="2_y5xhx"]
+[ext_resource type="Texture2D" uid="uid://bqrbxhf65kf8o" path="res://art/bunny_2.PNG" id="3_bh03a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imami"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y5xhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y5xhx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y5xhx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bh03a")
+}],
+"loop": true,
+"name": &"move",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wwji"]
+height = 40.0
+
+[node name="bunny" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+motion_mode = 1
+script = ExtResource("1_akccg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_imami")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-4, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5wwji")

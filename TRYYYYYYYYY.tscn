@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://chpx8uso8cdxn"]
+
+[ext_resource type="Script" path="res://TRYYYY.cs" id="1_8ywyh"]
+[ext_resource type="Texture2D" uid="uid://b5rqtgubtib3q" path="res://art/playButton/playButton1.png" id="2_gyy6k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kmc8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gyy6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rgyne"]
+radius = 160.798
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_8ywyh")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D"]
+position = Vector2(456, 280)
+sprite_frames = SubResource("SpriteFrames_kmc8s")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(456, 272)
+shape = SubResource("CircleShape2D_rgyne")
+
+[connection signal="mouse_entered" from="Node2D/Area2D" to="." method="_on_area_2d_mouse_entered"]

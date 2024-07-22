@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://5ldj6kwub2v"]
+
+[ext_resource type="Texture2D" uid="uid://blt65e5uqwt8a" path="res://art/Solaria Demo Tiles.png" id="1_02hbh"]
+
+[resource]
+atlas = ExtResource("1_02hbh")
+region = Rect2(128, 144, 16, 16)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt5nqw2tg7i0j"]
+
+[ext_resource type="Script" path="res://sword.cs" id="1_71ohg"]
+[ext_resource type="Texture2D" uid="uid://dkxlevn8ugnmt" path="res://art/new_atlas_texture.tres" id="2_cn6ot"]
+[ext_resource type="Texture2D" uid="uid://5ldj6kwub2v" path="res://art/sword.tres" id="3_wqygb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjkc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cn6ot")
+}],
+"loop": true,
+"name": &"no_pick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cn6ot")
+}, {
+"duration": 1.5,
+"texture": ExtResource("3_wqygb")
+}],
+"loop": false,
+"name": &"pick",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_puhyk"]
+radius = 16.0
+
+[node name="sword" type="Node2D"]
+script = ExtResource("1_71ohg")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bjkc7")
+animation = &"pick"
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+shape = SubResource("CircleShape2D_puhyk")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]

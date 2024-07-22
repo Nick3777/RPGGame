@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=3 uid="uid://lhgrmjxe2nid"]
+
+[ext_resource type="Script" path="res://BunnyMonster.cs" id="1_1dbh7"]
+[ext_resource type="Texture2D" uid="uid://sv83waipjf3" path="res://art/bunny_1.PNG" id="2_cia3b"]
+[ext_resource type="Texture2D" uid="uid://bqrbxhf65kf8o" path="res://art/bunny_2.PNG" id="3_oh4s2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_imami"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cia3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cia3b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cia3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oh4s2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wwji"]
+height = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wjsbr"]
+radius = 20.025
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12lq8"]
+radius = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2k5k"]
+radius = 15.0
+
+[node name="bunny" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_1dbh7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_imami")
+animation = &"idle"
+frame_progress = 0.942413
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5wwji")
+
+[node name="dmgArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dmgArea"]
+shape = SubResource("CircleShape2D_wjsbr")
+
+[node name="DetectArea" type="Area2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+shape = SubResource("CircleShape2D_12lq8")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["Enemy"]]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_l2k5k")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="Labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -35.0
+offset_bottom = -35.0
+grow_horizontal = 2
+
+[node name="Quote" type="Label" parent="Labels"]
+layout_mode = 1
+offset_left = -78.0
+offset_top = -26.0
+offset_right = 93.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "hey stronzo, non ti lascerò calpestare il mio terreno"
+autowrap_mode = 1
+uppercase = true
+
+[node name="DmgTaken" type="Label" parent="Labels"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 14.0
+offset_right = -8.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+
+[node name="labelTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="LabelDmgTakenTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="dmgArea" to="." method="_on_dmg_area_body_entered"]
+[connection signal="body_exited" from="dmgArea" to="." method="_on_dmg_area_body_exited"]
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]
+[connection signal="timeout" from="labelTimer" to="." method="_on_label_timer_timeout"]
+[connection signal="timeout" from="LabelDmgTakenTimer" to="." method="_on_label_dmg_taken_timer_timeout"]
