@@ -332,7 +332,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = false
+tracks/6/enabled = true
 tracks/6/path = NodePath(".:isAttacking")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -433,7 +433,7 @@ tracks/5/keys = {
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = false
+tracks/6/enabled = true
 tracks/6/path = NodePath(".:isAttacking")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
@@ -879,7 +879,7 @@ states/Run/node = SubResource("AnimationNodeBlendSpace1D_nwwh3")
 states/Run/position = Vector2(574, 424.384)
 states/Start/position = Vector2(108, 267)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_s33n8"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_vjcax"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_u3y4v"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_iyosc"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_skm8x"), "Run", "Move", SubResource("AnimationNodeStateMachineTransition_64f5y"), "Move", "Run", SubResource("AnimationNodeStateMachineTransition_eq3dk"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_aldjf"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_btn23"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_soa22"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_ht50c"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_4nq1m"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_efda7"), "Attack", "End", SubResource("AnimationNodeStateMachineTransition_vkayd")]
-graph_offset = Vector2(0, 97.3836)
+graph_offset = Vector2(0, 132.904)
 
 [node name="player" type="CharacterBody2D"]
 y_sort_enabled = true

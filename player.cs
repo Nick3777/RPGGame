@@ -66,9 +66,9 @@ public partial class player : CharacterBody2D
 			}
 		}
 		
-		// Determina la direzione in base all'attacco
+
 		direction = Input.GetVector("left", "right", "up", "down");
-		// Se l'attacco è in corso, imposta l'animazione di attacco
+
 		if (Input.IsActionPressed("attack"))
 		{
 			isAttacking = true;
@@ -77,7 +77,6 @@ public partial class player : CharacterBody2D
 		}
 		else
 		{
-			isAttacking = false;
 			if (direction == Vector2.Zero)
 			{
 				stateMachine.Travel("Idle");
