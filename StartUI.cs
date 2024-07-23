@@ -13,6 +13,7 @@ public partial class StartUI : Control
 		areaPlay = GetNode<Area2D>("MarginContainer/VBoxContainer/PlayButton/Area2D");
 	}
 
+
 	public override void _Process(double delta)
 	{
 	}
