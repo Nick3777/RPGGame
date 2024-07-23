@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://by5xyi26m0e5b"]
+[gd_scene load_steps=27 format=3 uid="uid://by5xyi26m0e5b"]
 
 [ext_resource type="Script" path="res://StartUI.cs" id="1_32467"]
-[ext_resource type="Texture2D" uid="uid://bb00r32uvfqif" path="res://art/1782564.jpg" id="2_vl2t2"]
+[ext_resource type="Texture2D" uid="uid://eooee4lgh5wi" path="res://art/bgPixel.png" id="2_15lda"]
 [ext_resource type="Texture2D" uid="uid://b5rqtgubtib3q" path="res://art/playButton/playButton1.png" id="3_44sir"]
 [ext_resource type="Texture2D" uid="uid://b2xwhibxaa1yk" path="res://art/playButton/playButton2.png" id="4_qb40v"]
 [ext_resource type="Texture2D" uid="uid://b1cl44252np6q" path="res://art/playButton/playButton3.png" id="5_grnsw"]
@@ -12,6 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://b7oa404yx4u5x" path="res://art/playButton/playButton8.png" id="10_3wcns"]
 [ext_resource type="Texture2D" uid="uid://bs6k8dfnoetat" path="res://art/playButton/playButton9.png" id="11_swhl3"]
 [ext_resource type="Texture2D" uid="uid://drja2tadxngyp" path="res://art/playButton/playButton10.png" id="12_1dxv2"]
+[ext_resource type="Texture2D" uid="uid://dnxuu6wrc6m7e" path="res://art/quitButton/Quit1.png" id="13_kyg5v"]
+[ext_resource type="Texture2D" uid="uid://ch4dv3wyni75j" path="res://art/quitButton/Quit2.png" id="14_s6tcf"]
+[ext_resource type="Texture2D" uid="uid://bjwnaepklervd" path="res://art/quitButton/Quit3.png" id="15_erom5"]
+[ext_resource type="Texture2D" uid="uid://cqo2lx8isxrm0" path="res://art/quitButton/Quit4.png" id="16_v6fin"]
+[ext_resource type="Texture2D" uid="uid://colrkhntwcen6" path="res://art/quitButton/Quit5.png" id="17_tjfle"]
+[ext_resource type="Texture2D" uid="uid://tc8xbhff0ole" path="res://art/quitButton/Quit6.png" id="18_uusff"]
+[ext_resource type="Texture2D" uid="uid://bvp0urahha5q7" path="res://art/quitButton/Quit7.png" id="19_qdkjt"]
+[ext_resource type="Texture2D" uid="uid://cq7071ot1iwdx" path="res://art/quitButton/Quit8.png" id="20_ij0rn"]
+[ext_resource type="Texture2D" uid="uid://c7o11fdt8lchj" path="res://art/quitButton/Quit9.png" id="21_2skwu"]
+[ext_resource type="Texture2D" uid="uid://cs5xnsw782h5l" path="res://art/quitButton/Quit10.png" id="22_32387"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3n2iv"]
 animations = [{
@@ -52,7 +62,48 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gb17"]
-size = Vector2(60.8, 20)
+size = Vector2(60.8, 19.2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6x43"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_kyg5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s6tcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_erom5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_v6fin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tjfle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_uusff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qdkjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ij0rn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_2skwu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_32387")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01huo"]
+size = Vector2(304, 96)
 
 [node name="StartUI" type="Control"]
 layout_mode = 3
@@ -71,7 +122,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vl2t2")
+texture = ExtResource("2_15lda")
 expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -89,54 +140,72 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="SettingButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 100
-text = "Settings"
-
-[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 100
-text = "Quit"
-
 [node name="PlayButton" type="Node2D" parent="MarginContainer/VBoxContainer"]
 z_index = 1
-position = Vector2(4, -32)
+position = Vector2(196, -302)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/PlayButton"]
 modulate = Color(0.8, 0.8, 0.8, 1)
-position = Vector2(156, -24)
+position = Vector2(1.00003, -1)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_3n2iv")
-frame = 5
-frame_progress = 0.740861
 
 [node name="Area2D" type="Area2D" parent="MarginContainer/VBoxContainer/PlayButton"]
-position = Vector2(152, -24)
+position = Vector2(1.00002, -1)
 scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/PlayButton/Area2D"]
-position = Vector2(3.8147e-06, 0)
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0gb17")
 
+[node name="QuitButton" type="Node2D" parent="MarginContainer/VBoxContainer"]
+z_index = 1
+position = Vector2(196, -110)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/QuitButton"]
+modulate = Color(0.8, 0.8, 0.8, 1)
+position = Vector2(9.53674e-07, 9.53674e-07)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_f6x43")
+frame = 3
+frame_progress = 0.498036
+
+[node name="Area2D" type="Area2D" parent="MarginContainer/VBoxContainer/QuitButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/QuitButton/Area2D"]
+shape = SubResource("RectangleShape2D_01huo")
+
 [node name="Label" type="Label" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -467.5
-offset_right = 467.5
-offset_bottom = 137.0
+offset_left = 288.0
+offset_top = 600.0
+offset_right = 563.0
+offset_bottom = 635.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.933333, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "Nick and eva's Game
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "NICK AND EVA'S GAME
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="Label"]
+modulate = Color(1, 1, 1, 0.552941)
+z_index = -1
+layout_mode = 0
+offset_right = 275.0
+offset_bottom = 35.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="input_event" from="MarginContainer/VBoxContainer/PlayButton/Area2D" to="." method="_OnPlayButtonInputEvent"]
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PlayButton/Area2D" to="." method="_OnPlayButtonAreaEntered"]
 [connection signal="mouse_exited" from="MarginContainer/VBoxContainer/PlayButton/Area2D" to="." method="_OnPlayButtonAreaExited"]
+[connection signal="input_event" from="MarginContainer/VBoxContainer/QuitButton/Area2D" to="." method="_OnQuitButtonInputEvent"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/QuitButton/Area2D" to="." method="_OnQuitButtonAreaEntered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/QuitButton/Area2D" to="." method="_OnQuitButtonAreaExited"]

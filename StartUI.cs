@@ -6,7 +6,6 @@ public partial class StartUI : Control
 	private PackedScene SceneTransition;
 	private Area2D areaPlay;
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		SceneTransition = GD.Load<PackedScene>("res://TransitionScene.tscn");
@@ -18,20 +17,9 @@ public partial class StartUI : Control
 	{
 	}
 	
-
-	private void _on_setting_button_pressed()
+	private void _OnButtonAreaEntered(String button)
 	{
-		// Replace with function body.
-	}
-
-	private void _on_quit_button_pressed()
-	{
-		GetTree().Quit();
-	}
-	
-	private void _OnPlayButtonAreaEntered()
-	{
-		AnimatedSprite2D animatedSprite2D= GetNode<AnimatedSprite2D>("MarginContainer/VBoxContainer/PlayButton/AnimatedSprite2D");
+		AnimatedSprite2D animatedSprite2D= GetNode<AnimatedSprite2D>($"MarginContainer/VBoxContainer/{button}/AnimatedSprite2D");
 		animatedSprite2D.Play("default");
 		Color newColor = animatedSprite2D.Modulate;
 		newColor = new Color(1, 1, 1);
@@ -39,9 +27,9 @@ public partial class StartUI : Control
 		
 	}
 
-	private void _OnPlayButtonAreaExited()
+	private void _OnButtonAreaExited(String button)
 	{
-		AnimatedSprite2D animatedSprite2D= GetNode<AnimatedSprite2D>("MarginContainer/VBoxContainer/PlayButton/AnimatedSprite2D");
+		AnimatedSprite2D animatedSprite2D= GetNode<AnimatedSprite2D>($"MarginContainer/VBoxContainer/{button}/AnimatedSprite2D");
 		animatedSprite2D.Stop();
 		Color newColor = animatedSprite2D.Modulate;
 		newColor = new Color(0.8f, 0.8f, 0.8f);
@@ -54,7 +42,6 @@ public partial class StartUI : Control
 		{
 			if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
 			{
-				GD.Print("Area2D clicked");
 				var instance = SceneTransition.Instantiate();
 				AddChild(instance);
 				
@@ -72,8 +59,36 @@ public partial class StartUI : Control
 		}
 	}
 	
+	private void _OnQuitButtonInputEvent(Node viewport, InputEvent @event, long shape_idx)
+	{
+		if (@event is InputEventMouseButton mouseEvent)
+		{
+			if (mouseEvent.Pressed && mouseEvent.ButtonIndex == MouseButton.Left)
+			{
+				GetTree().Quit();
+			}
+		}
+	}
+	
 	private void OnTimeout()
 	{
 		GetTree().ChangeSceneToFile("res://VillageScene.tscn");
 	}
+	
+	private void _OnPlayButtonAreaEntered(){
+		_OnButtonAreaEntered("PlayButton");
+	}
+	
+	private void _OnPlayButtonAreaExited(){
+		_OnButtonAreaExited("PlayButton");
+	}
+	
+	private void _OnQuitButtonAreaEntered(){
+		_OnButtonAreaEntered("QuitButton");
+	}
+	
+	private void _OnQuitButtonAreaExited(){
+		_OnButtonAreaExited("QuitButton");
+	}
 }
+

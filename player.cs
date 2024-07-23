@@ -66,9 +66,16 @@ public partial class player : CharacterBody2D
 			}
 		}
 		
-
 		direction = Input.GetVector("left", "right", "up", "down");
-
+		if(Input.IsActionPressed("right") || Input.IsActionPressed("left")){
+			direction.Y = 0;
+			direction.X = Input.IsActionPressed("right") ? 1 : -1;
+		}
+		else if(Input.IsActionPressed("up") || Input.IsActionPressed("down")){
+			direction.Y = Input.IsActionPressed("up") ? -1 : 1;
+			direction.X = 0;
+		}
+			
 		if (Input.IsActionPressed("attack") && playerState.swordPicked)
 		{
 			isAttacking = true;
