@@ -69,7 +69,7 @@ public partial class player : CharacterBody2D
 
 		direction = Input.GetVector("left", "right", "up", "down");
 
-		if (Input.IsActionPressed("attack"))
+		if (Input.IsActionPressed("attack") && playerState.swordPicked)
 		{
 			isAttacking = true;
 			animationTree.Set("parameters/Attack/blend_position", animatedSprite2D.FlipH ? -1 : 1);

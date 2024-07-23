@@ -1,47 +1,153 @@
-[gd_scene load_steps=6 format=3 uid="uid://dt5nqw2tg7i0j"]
+[gd_scene load_steps=15 format=3 uid="uid://dt5nqw2tg7i0j"]
 
 [ext_resource type="Script" path="res://sword.cs" id="1_71ohg"]
-[ext_resource type="Texture2D" uid="uid://dkxlevn8ugnmt" path="res://art/new_atlas_texture.tres" id="2_cn6ot"]
-[ext_resource type="Texture2D" uid="uid://5ldj6kwub2v" path="res://art/sword.tres" id="3_wqygb"]
+[ext_resource type="Texture2D" uid="uid://rliy5k6pwshw" path="res://art/swordPickup/swordPickup1.png" id="2_mvb8j"]
+[ext_resource type="Texture2D" uid="uid://dv3gr85bl7p4i" path="res://art/swordPickup/swordPickup2.png" id="3_7k2os"]
+[ext_resource type="Texture2D" uid="uid://y1gmr7e7kro" path="res://art/swordPickup/swordPickup3.png" id="4_457q8"]
+[ext_resource type="Texture2D" uid="uid://cj53gh8dyjg85" path="res://art/swordPickup/swordPickup5.png" id="5_1ygpg"]
+[ext_resource type="Texture2D" uid="uid://bg4vdr23kyhnv" path="res://art/swordPickup/swordPickup6.png" id="6_33fn1"]
+[ext_resource type="Texture2D" uid="uid://cvmwdaairoyrf" path="res://art/swordPickup/swordPickup4.png" id="7_taycx"]
+[ext_resource type="Texture2D" uid="uid://g33o62o7kgkk" path="res://art/swordPickup/swordPickup7.png" id="8_1re74"]
+[ext_resource type="Texture2D" uid="uid://evvsqkxataml" path="res://art/swordPickup/swordPickup8.png" id="9_vmjgp"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bjkc7"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_mw2iu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cn6ot")
+"texture": ExtResource("2_mvb8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7k2os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_457q8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1ygpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_33fn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_taycx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1re74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vmjgp")
 }],
 "loop": true,
-"name": &"no_pick",
+"name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_cn6ot")
-}, {
-"duration": 1.5,
-"texture": ExtResource("3_wqygb")
-}],
-"loop": false,
-"name": &"pick",
-"speed": 2.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_puhyk"]
-radius = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1ptm"]
+radius = 26.0192
+
+[sub_resource type="Animation" id="Animation_br32m"]
+resource_name = "pickup"
+length = 1.8
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_nmlyq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_24yhb"]
+_data = {
+"RESET": SubResource("Animation_nmlyq"),
+"pickup": SubResource("Animation_br32m")
+}
 
 [node name="sword" type="Node2D"]
+position = Vector2(100, 29)
 script = ExtResource("1_71ohg")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_bjkc7")
-animation = &"pick"
+sprite_frames = SubResource("SpriteFrames_mw2iu")
 
-[node name="pickable_area" type="Area2D" parent="."]
+[node name="pickableArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
-shape = SubResource("CircleShape2D_puhyk")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickableArea"]
+shape = SubResource("CircleShape2D_d1ptm")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
-[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_24yhb")
+}
+
+[connection signal="body_entered" from="pickableArea" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickableArea" to="." method="_on_pickable_area_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

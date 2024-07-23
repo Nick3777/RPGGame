@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk6igyupnm53v"]
+[gd_scene load_steps=11 format=3 uid="uid://bk6igyupnm53v"]
 
 [ext_resource type="Script" path="res://BunnyMini.cs" id="1_akccg"]
-[ext_resource type="Texture2D" uid="uid://sv83waipjf3" path="res://art/bunny_1.PNG" id="2_y5xhx"]
-[ext_resource type="Texture2D" uid="uid://bqrbxhf65kf8o" path="res://art/bunny_2.PNG" id="3_bh03a"]
+[ext_resource type="Texture2D" uid="uid://douhqut8kwhhi" path="res://art/bunnyLittle/Untitled 19 1.png" id="2_qv3r7"]
+[ext_resource type="Texture2D" uid="uid://c6i71q3tlv8b8" path="res://art/bunnyLittle/Untitled 19 2.png" id="3_def1t"]
+[ext_resource type="Texture2D" uid="uid://bh3w78drvo11a" path="res://art/bunnyLittle/Untitled 19 3.png" id="4_tfivw"]
+[ext_resource type="Texture2D" uid="uid://dd0jvrkrjof45" path="res://art/bunnyLittle/Untitled 19 4.png" id="5_3r4h6"]
+[ext_resource type="Texture2D" uid="uid://y8b54pgqdbw2" path="res://art/bunnyLittle/Untitled 19 5.png" id="6_bnuay"]
+[ext_resource type="Texture2D" uid="uid://di8gvq1pyv8in" path="res://art/bunnyLittle/Untitled 19 6.png" id="7_4433s"]
+[ext_resource type="Texture2D" uid="uid://c4eh36ta7o4xm" path="res://art/bunnyLittle/Untitled 19 7.png" id="8_346fr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_imami"]
 animations = [{
@@ -18,10 +23,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y5xhx")
+"texture": ExtResource("2_qv3r7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_y5xhx")
+"texture": ExtResource("3_def1t")
 }],
 "loop": true,
 "name": &"idle",
@@ -34,31 +39,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_y5xhx")
+"texture": ExtResource("2_qv3r7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_bh03a")
+"texture": ExtResource("3_def1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tfivw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3r4h6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bnuay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4433s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_346fr")
 }],
 "loop": true,
 "name": &"move",
-"speed": 2.0
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wwji"]
-height = 40.0
+radius = 5.0
+height = 14.0
 
 [node name="bunny" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_akccg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_imami")
 animation = &"move"
+frame = 4
+frame_progress = 0.915215
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-4, 0)
+position = Vector2(0, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_5wwji")

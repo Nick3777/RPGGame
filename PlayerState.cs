@@ -8,6 +8,7 @@ public partial class PlayerState : Node
 	public float PlayerSpeed { get; set; } = 45.0f;
 	public float PlayerRunSpeed { get; set; } = 90.0f;
 	public int PlayerDamage { get; set; } = 20;
+	public bool swordPicked {get; set;} = false;
 
 	public override void _Ready()
 	{

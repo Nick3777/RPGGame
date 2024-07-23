@@ -40,7 +40,7 @@ public partial class BunnyMini : CharacterBody2D
 		}
 		if (Velocity.X != 0)
 		{
-			_sprite.FlipH = Velocity.X < 0;
+			_sprite.FlipH = Velocity.X > 0;
 			_sprite.Play("move");
 		}else{
 			_sprite.Play("idle");

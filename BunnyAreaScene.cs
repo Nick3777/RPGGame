@@ -21,7 +21,7 @@ public partial class BunnyAreaScene : Node2D
 		miniBunnyScene = GD.Load<PackedScene>("res://BunnyMini.tscn");
 		
 		Random random = new Random();
-		int upperLimit = random.Next(7, 13);
+		int upperLimit = random.Next(10, 15);
 		for (int i = 0; i < upperLimit; i++)
 		{
 			BunnyMini bunnyMini = miniBunnyScene.Instantiate<BunnyMini>();

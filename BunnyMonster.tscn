@@ -59,6 +59,7 @@ radius = 15.0
 [node name="bunny" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_1dbh7")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.12, 0.12)
