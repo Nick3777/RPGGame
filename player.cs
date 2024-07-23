@@ -85,7 +85,7 @@ public partial class player : CharacterBody2D
 			{
 				speed = Input.IsActionPressed("run") ? playerState.PlayerRunSpeed : playerState.PlayerSpeed;
 				string animationState = Input.IsActionPressed("run") ? "Run" : "Move";
-				animationTree.Set($"parameters/{animationState}/blend_position", direction.X);
+				animationTree.Set($"parameters/{animationState}/blend_position", direction);
 				stateMachine.Travel(animationState);
 			}
 		}
