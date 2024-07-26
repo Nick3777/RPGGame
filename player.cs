@@ -35,15 +35,17 @@ public partial class player : CharacterBody2D
 		maxHealth = playerState.PlayerMaxHealth;
 		speed = playerState.PlayerSpeed;
 		dmg = playerState.PlayerDamage;
-		direction = Vector2.Zero;
 		
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animatedSprite2D.FlipH = false; 
+		
 		healthBar = GetNode<HealthBar>("CanvasLayer/HealthBar");
 		healthBar.SetHealthBar(health, maxHealth);
 		
 		//CallDeferred(nameof(InitializeStateMachine));
 		animationTree = GetNode<AnimationTree>("AnimationTree");
 		stateMachine = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
+		
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -102,6 +104,9 @@ public partial class player : CharacterBody2D
 		else
 			Velocity = direction * speed;
 			
+		if(direction != new Vector2(0,0))
+			playerState.DirectionFacing = direction;
+		GD.Print(playerState.DirectionFacing);
 		MoveAndSlide();
 	}
 

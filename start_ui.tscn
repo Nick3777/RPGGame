@@ -156,7 +156,6 @@ scale = Vector2(5, 5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer/VBoxContainer/PlayButton/Area2D"]
 position = Vector2(0, 3.8147e-06)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0gb17")
 
 [node name="QuitButton" type="Node2D" parent="MarginContainer/VBoxContainer"]

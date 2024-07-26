@@ -15,11 +15,9 @@ public partial class BunnyAreaScene : Node2D
 		Color newColor = colorRect.Color;
 		newColor.A = 255;
 		colorRect.Color = newColor;
-		
 		SceneTransitionAnimation.Play("fade_out");
 		
 		miniBunnyScene = GD.Load<PackedScene>("res://BunnyMini.tscn");
-		
 		Random random = new Random();
 		int upperLimit = random.Next(10, 15);
 		for (int i = 0; i < upperLimit; i++)

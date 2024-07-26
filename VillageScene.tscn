@@ -13487,9 +13487,11 @@ texture = ExtResource("15_2i2tx")
 11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:0/0/physics_layer_0/angular_velocity = 0.0
 12:0/0 = 0
+12:0/0/y_sort_origin = 8
 12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:0/0/physics_layer_0/angular_velocity = 0.0
 13:0/0 = 0
+13:0/0/y_sort_origin = 8
 13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:0/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
@@ -13522,11 +13524,15 @@ texture = ExtResource("15_2i2tx")
 11:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:1/0/physics_layer_0/angular_velocity = 0.0
 12:1/0 = 0
+12:1/0/y_sort_origin = -8
 12:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:1/0/physics_layer_0/angular_velocity = 0.0
+12:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:1/0 = 0
+13:1/0/y_sort_origin = -8
 13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:1/0/physics_layer_0/angular_velocity = 0.0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:2/0 = 0
 5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:2/0/physics_layer_0/angular_velocity = 0.0
@@ -18834,7 +18840,6 @@ script = ExtResource("1_hq6u7")
 y_sort_enabled = true
 position = Vector2(-16, -16)
 tile_set = SubResource("TileSet_3qr8o")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "0 acqua "
 layer_0/z_index = -1
@@ -18851,7 +18856,6 @@ layer_3/tile_data = PackedInt32Array(1507365, 11, 1, 1572901, 11, 2, 1638437, 11
 
 [node name="Player" parent="." instance=ExtResource("25_t6o24")]
 position = Vector2(393, 248)
-scale = Vector2(0.7, 0.7)
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 
